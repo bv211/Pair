@@ -3,19 +3,17 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
+	setlocale(0, "");
+
 	Pair<int, string> pair(4);
 	pair.add(12, "Hello");
-	pair.add(43, "World");
-	pair.add(12, "Kek"); // key 12 is exist
-	pair.add(1, "Princes is in another castle");
+	pair[43] = "World"; // error.
 
-	pair[12] = "HALO";
-	cout << pair[12] << endl;
-	cout << pair[43] << endl;
-	cout << pair[1] << endl;
-	cout << pair[0] << endl; // error, key is not exist
+	for (auto& item : pair) {
+		cout << "key: " << item << endl
+			<< "value: " << pair[item];
+	}
 
 	return 0;
 }
